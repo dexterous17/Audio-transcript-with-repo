@@ -1,7 +1,6 @@
 import React from 'react';
 import '../Css/Menu.css'; 
 
-// Change this function name to whatever you like
 function Menu() {
   return (
     <header className="header">
