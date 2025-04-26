@@ -1,0 +1,36 @@
+# Dependency folders
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific files
+*.swp
+*.bak
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Optional lock files (you can keep this if you want deterministic installs)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
