@@ -1,7 +1,8 @@
 .voice-recorder-container {
     align-items: center;
-    padding: 40px 40px;
+    padding: 20px 10px;
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 0;
   }
   
