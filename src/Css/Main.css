@@ -1,5 +1,32 @@
+.main-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 32px 32px 24px 32px;
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.main-card-desc {
+    font-size: 15px;
+    color: #5e5e5e;
+    margin-bottom: 4px;
+}
+
 .main-content {
     flex-grow: 1;
-    padding: 10px 20px;
+    padding: 24px 32px;
     background-color: #f4f4f4;
-  }
+    box-sizing: border-box;
+}
