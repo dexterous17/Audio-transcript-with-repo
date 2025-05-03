@@ -5,9 +5,10 @@
 This project is a modern prototype that includes:
 
 - A working **audio recorder** with real-time visualization  
-- A **sidebar with searchable cards** and modal popups  
+- A **sidebar with searchable cards**  
 - A **top menu bar** for easy access to sections
 - Clean, responsive layout and UI polish
+- **Dynamic main content** that updates based on sidebar card selection
 
 It's designed to serve as a **foundation** for building more complex audio recording and transcript processing applications.
 
@@ -20,21 +21,21 @@ It's designed to serve as a **foundation** for building more complex audio recor
 - 🗂️ **Sidebar with Cards:** Add, search, and view cards in the sidebar  
 - 🔍 **Sidebar Search:** Instantly filter cards as you type  
 - ➕ **Plus Button:** Modern action button for creating new recordings  
-- 🗂️ **Card Modal:** Click any card to view its details in a centered modal popup  
 - 📑 **Menu Bar:** Basic top navigation layout  
 - 💎 **UI Polish:** Consistent padding, spacing, and responsive design  
 - ⚡ **Built with:** React.js and Vite
+- 🧩 **Dynamic Main Content:** Main area updates to show card details when a sidebar card is clicked, and resets to default when 'Create New Recording' is clicked
 
 ---
 
-## 🆕 2024 Additions & Improvements
+## 🆕 2025 Additions & Improvements
 
 - Sidebar cards with title/description, styled and clickable
 - Real-time search for sidebar cards
-- Modal popup for card details (click any card to open)
 - Sidebar plus icon/button with hover/click effects
 - Sidebar and main layout fixes (no unwanted scrollbars, fixed width, full height)
 - Main content cards (including a welcome/info card and the voice recorder card)
+- Main content dynamically updates based on sidebar card selection
 - All UI components refactored for modularity and maintainability
 - Improved accessibility (keyboard navigation, ARIA labels)
 
@@ -100,6 +101,7 @@ README.md
 
 - The layout and structure are kept minimal to allow maximum flexibility for future development.
 - The sidebar and menu are now dynamic and interactive.
+- The main content area updates based on sidebar card selection or resets to default.
 - The voice recorder works out of the box but can be extended with transcript functionality later.
 
 ---
