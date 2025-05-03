@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Modal from './Modal';
+import React from 'react';
 
 const cards = [
   { id: 1, title: 'Meeting Notes', description: 'Notes from the weekly meeting.' },
@@ -8,9 +7,7 @@ const cards = [
   { id: 4, title: 'Personal Memo', description: 'Quick personal reminder.' },
 ];
 
-function Cards({ search }) {
-  const [openCard, setOpenCard] = useState(null);
-
+function Cards({ search, onCardClick }) {
   const filteredCards = cards.filter(card =>
     card.title.toLowerCase().includes(search.toLowerCase()) ||
     card.description.toLowerCase().includes(search.toLowerCase())
@@ -21,32 +18,20 @@ function Cards({ search }) {
   }
 
   return (
-    <>
-      <div className="sidebar-cards">
-        {filteredCards.map(card => (
-          <div
-            className="sidebar-card"
-            key={card.id}
-            onClick={() => setOpenCard(card)}
-            style={{ cursor: 'pointer' }}
-            tabIndex={0}
-            role="button"
-            aria-label={`Open ${card.title}`}
-          >
-            <div className="sidebar-card-title">{card.title}</div>
-            <div className="sidebar-card-desc">{card.description}</div>
-          </div>
-        ))}
-      </div>
-      <Modal open={!!openCard} onClose={() => setOpenCard(null)}>
-        {openCard && (
-          <div style={{ padding: '16px 8px' }}>
-            <h2 style={{ marginTop: 0 }}>{openCard.title}</h2>
-            <p>{openCard.description}</p>
-          </div>
-        )}
-      </Modal>
-    </>
+    <div className="sidebar-cards">
+      {filteredCards.map(card => (
+        <div
+          className="sidebar-card"
+          key={card.id}
+          style={{ cursor: 'pointer' }}
+          onClick={() => onCardClick && onCardClick(card)}
+          aria-label={`Card: ${card.title}`}
+        >
+          <div className="sidebar-card-title">{card.title}</div>
+          <div className="sidebar-card-desc">{card.description}</div>
+        </div>
+      ))}
+    </div>
   );
 }
 

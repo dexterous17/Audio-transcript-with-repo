@@ -6,3 +6,17 @@
     border-radius: 0;
   }
   
+.mic-svg-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.mic-svg-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+  
