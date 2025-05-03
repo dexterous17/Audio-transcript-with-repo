@@ -34,3 +34,9 @@ Thumbs.db
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+
+# Backend data and logs
+server/uploads/
+server/audio.db
+server/audio.sqlite
+server/logs/

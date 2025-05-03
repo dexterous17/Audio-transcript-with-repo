@@ -2,15 +2,16 @@
 
 ## 📜 Overview
 
-This project is a modern prototype that includes:
+This project is a full-stack audio recording and playback app with:
 
-- A working **audio recorder** with real-time visualization  
-- A **sidebar with searchable cards**  
-- A **top menu bar** for easy access to sections
-- Clean, responsive layout and UI polish
+- A working **audio recorder** with real-time waveform visualization
+- **Sidebar with searchable cards** (title & description only)
+- **Audio files stored and streamed from a Node.js/Express backend**
+- **Custom playback controls** (Play/Pause, Clear, Edit, Delete) styled for a modern UI
+- **REST API** for CRUD operations and audio streaming
 - **Dynamic main content** that updates based on sidebar card selection
 
-It's designed to serve as a **foundation** for building more complex audio recording and transcript processing applications.
+It's a foundation for building more complex audio and transcript applications.
 
 ---
 
@@ -30,22 +31,24 @@ It's designed to serve as a **foundation** for building more complex audio recor
 
 ## 🆕 2025 Additions & Improvements
 
-- Sidebar cards with title/description, styled and clickable
-- Real-time search for sidebar cards
-- Sidebar plus icon/button with hover/click effects
-- Sidebar and main layout fixes (no unwanted scrollbars, fixed width, full height)
-- Main content cards (including a welcome/info card and the voice recorder card)
-- Main content dynamically updates based on sidebar card selection
-- All UI components refactored for modularity and maintainability
-- Improved accessibility (keyboard navigation, ARIA labels)
+- Sidebar cards show only title/description (no audio path)
+- Audio is fetched from `/audios/:id/audio` only when a card is clicked
+- Custom controller row for playback: Play/Pause, Clear, Edit, Delete (pill-shaped buttons)
+- Backend API for audio streaming, upload, update, and delete
+- Modular, maintainable React components
+- Improved error/loading states for audio fetch and playback
 
 ---
 
 ## 🛠️ Tech Stack
 
-- React 19  
-- Vite  
-- [react-voice-visualizer](https://www.npmjs.com/package/react-voice-visualizer) (for audio visualization)  
+- React 19 (frontend)
+- Vite (frontend tooling)
+- Node.js/Express (backend)
+- SQLite (database)
+- Multer (file uploads)
+- Winston (logging)
+- [react-voice-visualizer](https://www.npmjs.com/package/react-voice-visualizer) (audio waveform)
 - HTML/CSS (custom styling)
 
 ---
@@ -85,10 +88,15 @@ npm run dev
 ```bash
 /public           # Static files
 /src
-  /Components     # React components like Sidebar, Header, Recorder, Modal, MainCard
+  /Components     # React components (Sidebar, AudioPlayer, VoiceRecorder, Modal, MainCard, etc.)
   /Css            # Custom CSS files
   App.jsx         # Main app
   main.jsx        # Entry point
+/server           # Backend (Express, SQLite, uploads, logs)
+  index.js        # Main server file
+  audio.db        # SQLite database
+  uploads/        # Uploaded audio files
+  logs/           # Server logs
 .gitignore
 package.json
 vite.config.js
@@ -99,10 +107,11 @@ README.md
 
 ## 📌 Notes
 
-- The layout and structure are kept minimal to allow maximum flexibility for future development.
-- The sidebar and menu are now dynamic and interactive.
+- The sidebar and menu are dynamic and interactive.
 - The main content area updates based on sidebar card selection or resets to default.
-- The voice recorder works out of the box but can be extended with transcript functionality later.
+- Audio is only fetched and loaded when a card is clicked.
+- The voice recorder and player use custom pill-shaped controls for a modern look.
+- The backend is robust, with error handling and logging.
 
 ---
 
@@ -131,3 +140,15 @@ This project is licensed under the [MIT License](LICENSE).
 ## ✨ Final Line
 
 > *"This is just the beginning of a powerful, dynamic audio application. Stay tuned!"*
+
+## 🖥️ Backend API Endpoints
+
+- `GET /audios` — List all cards (id, title, description)
+- `POST /audios` — Upload a new audio file (multipart/form-data)
+- `PUT /audios/:id` — Update card info (title, description, and/or audio)
+- `DELETE /audios/:id` — Delete a card and its audio file
+- `GET /audios/:id/audio` — Stream the audio file for a card
+
+Audio files are stored in `server/uploads/` and streamed on demand.
+
+**Note:** The frontend only fetches audio when a card is clicked, for efficiency.
